@@ -32,16 +32,16 @@
     </define>
     <verbose-stacktraces>true</verbose-stacktraces>
     <source-path append="true">
-      <path-element>C:\Users\rant\AsStuff\FlashBanner\src</path-element>
+      <path-element>C:\Users\rant\AsStuff\simonSays\src</path-element>
       <path-element>C:\Program Files (x86)\FlashDevelop\Library\AS3\classes</path-element>
     </source-path>
     <library-path append="true">
-      <path-element>C:\Users\rant\AsStuff\FlashBanner\src\com\GreenSock-AS3\greensock.swc</path-element>
-      <path-element>C:\Users\rant\AsStuff\FlashBanner\lib\simonAssets.swc</path-element>
+      <path-element>C:\Users\rant\AsStuff\simonSays\src\com\GreenSock-AS3\greensock.swc</path-element>
+      <path-element>C:\Users\rant\AsStuff\simonSays\lib\simonAssets.swc</path-element>
     </library-path>
   </compiler>
   <file-specs>
-    <path-element>C:\Users\rant\AsStuff\FlashBanner\src\Main.as</path-element>
+    <path-element>C:\Users\rant\AsStuff\simonSays\src\Main.as</path-element>
   </file-specs>
   <default-background-color>#FFFFFF</default-background-color>
   <default-frame-rate>24</default-frame-rate>

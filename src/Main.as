@@ -22,6 +22,8 @@ package
 		private var leftButtonMC:MovieClip;
 		private var startBg:MovieClip;
 		private var startButton:MovieClip;
+		private var gameOverBg:MovieClip;
+		private var playAgain:MovieClip;
 		
 		private var stageWidth:Number      	= 800;
 		private var stageHeight:Number     	= 600;
@@ -120,7 +122,12 @@ package
 				{
 					currentCommand++;
 				}
-				else trace('you lose!')
+				else 
+				{
+					currentCommand = 0
+					gameOver();
+				}
+				
 				if (currentCommand === commands.length)
 				{
 					currentCommand = 0;
@@ -212,6 +219,29 @@ package
 			startButton.addEventListener(MouseEvent.CLICK, startGame)
 		}
 		
+		
+		private function gameOver():void
+		{
+			gameOverBg 		= new gameOverBgMC();
+			playAgain 		= new playAgainMC();
+			
+			playAgain.x 	= 190;
+			playAgain.y 	= 340;
+			
+			removeChildren(0, 4);
+			
+			addChild(gameOverBg);
+			addChild(playAgain);
+			
+			function startGame():void
+			{
+				removeChild(gameOverBg);
+				removeChild(playAgain);
+				startSimon();
+			}
+			
+			playAgain.addEventListener(MouseEvent.CLICK, startGame)
+		}
 	}
 	
 }
