@@ -45,10 +45,10 @@ package
 		private function startSimon():void
 		{
 			bg					= new bgMC();
-			upButtonMC			= new newTopMC();
-			downButtonMC		= new newRightMC();
-			leftButtonMC		= new newLeftMC();
-			rightButtonMC		= new newBotMC();
+			upButtonMC			= new dullTopMC();
+			downButtonMC		= new dullRightMC();
+			leftButtonMC		= new dullLeftMC();
+			rightButtonMC		= new dullBotMC();
 			
 			upButtonMC.type		= 'up';
 			downButtonMC.type	= 'down';
@@ -79,17 +79,15 @@ package
 			//buutton glow
 			 
 			
-			var greenGlow:GlowFilter 	= new GlowFilter(0x138613, 0, 150, 150, 3,1, true);
-			var redGlow:GlowFilter		= new GlowFilter(0xef3928, 0, 150, 150, 3,1, true);
-			var blueGlow:GlowFilter		= new GlowFilter(0x6ff2eb, 0, 150, 150, 3,1, true);
-			var yellowGlow:GlowFilter	= new GlowFilter(0xf4f45a, 0, 150, 150, 3,1, true);
-			var bevilFilter:BevelFilter = new BevelFilter(3, 45, 16777215);
+			var yellowGlow:GlowFilter 	= new GlowFilter(0xf2e27d, 0, 300, 300, 3,1, true);
+			var blueGlow:GlowFilter		= new GlowFilter(0x7cefef, 0, 300, 300, 3,1, true);
+			var pinkGlow:GlowFilter		= new GlowFilter(0xe96bf4, 0, 300, 300, 3,1, true);
+			var redGlow:GlowFilter		= new GlowFilter(0xf22b9f, 0, 300, 300, 3,1, true);
 			
-			upButtonMC.filters			= [greenGlow];
-			downButtonMC.filters		= [redGlow];
-			leftButtonMC.filters		= [blueGlow];
-			rightButtonMC.filters 		= [yellowGlow];
-			upButtonMC.filters			= [bevilFilter];
+			upButtonMC.filters			= [yellowGlow];
+			downButtonMC.filters		= [blueGlow];
+			leftButtonMC.filters		= [pinkGlow];
+			rightButtonMC.filters 		= [redGlow];
 			
 			function increaseGlow(btn:MovieClip, glow:GlowFilter):void
 			{
@@ -106,7 +104,7 @@ package
 			function setDecreaseGlow(btn:MovieClip, glow:GlowFilter):void
 			{
 			   var decreaseInt:uint = setInterval(decreaseGlow, 25, btn, glow);
-			   setTimeout(clearInterval, 800, decreaseInt);
+			   setTimeout(clearInterval, 400, decreaseInt);
 			}
 	
 			
@@ -116,8 +114,6 @@ package
 				var intervalId:uint = setInterval(increaseGlow, 25, btn, glow);
 				setTimeout(clearInterval, 400, intervalId);
 				setTimeout(setDecreaseGlow, 400, btn, glow);
-				trace(currentCommand)
-				trace(btn)
 				if (commands[currentCommand] === btn.type)
 				{
 					currentCommand++;
@@ -151,10 +147,10 @@ package
 			
 			var glowFuncs:Object = 
 			{
-				up:			function() : void { compClickGlow(upButtonMC, greenGlow) },
-				down: 		function() : void { compClickGlow(downButtonMC, redGlow) },
-				right:		function() : void { compClickGlow(rightButtonMC, yellowGlow) },
-				left:		function() : void { compClickGlow(leftButtonMC, blueGlow) }
+				up:			function() : void { compClickGlow(upButtonMC, yellowGlow) },
+				down: 		function() : void { compClickGlow(downButtonMC, blueGlow) },
+				right:		function() : void { compClickGlow(rightButtonMC, redGlow) },
+				left:		function() : void { compClickGlow(leftButtonMC, pinkGlow) }
 			}
 			
 			function getKeys(obj:Object):Array
@@ -176,7 +172,6 @@ package
 				{
 					setTimeout(glowFuncs[commands[i]], 1000 * i)
 				}
-				trace('running')
 			}
 			
 			function playerTurn():void
@@ -184,10 +179,10 @@ package
 				
 				//event listeners --------------------------------------------------------------------------------------------
 			
-				upButtonMC.addEventListener(MouseEvent.CLICK, function(e: MouseEvent) : void { clickGlow(e, upButtonMC, greenGlow) });
-				downButtonMC.addEventListener(MouseEvent.CLICK, function(e: MouseEvent) : void { clickGlow(e, downButtonMC, redGlow) });
-				rightButtonMC.addEventListener(MouseEvent.CLICK, function(e: MouseEvent) : void { clickGlow(e, rightButtonMC, yellowGlow) });
-				leftButtonMC.addEventListener(MouseEvent.CLICK, function(e: MouseEvent) : void { clickGlow(e, leftButtonMC, blueGlow) });
+				upButtonMC.addEventListener(MouseEvent.CLICK, function(e: MouseEvent) : void { clickGlow(e, upButtonMC, yellowGlow) });
+				downButtonMC.addEventListener(MouseEvent.CLICK, function(e: MouseEvent) : void { clickGlow(e, downButtonMC, blueGlow) });
+				rightButtonMC.addEventListener(MouseEvent.CLICK, function(e: MouseEvent) : void { clickGlow(e, rightButtonMC, redGlow) });
+				leftButtonMC.addEventListener(MouseEvent.CLICK, function(e: MouseEvent) : void { clickGlow(e, leftButtonMC, pinkGlow) });
 				
 				// ---------------------------------------------------------------------------------------------------------------
 			}
